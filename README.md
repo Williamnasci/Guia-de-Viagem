@@ -1,40 +1,103 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# 🌍 EU Mobility Hub - Guia de Viagem
 
-## Getting Started
+Um guia interativo, construído com **Next.js**, para ajudar estudantes em mobilidade acadêmica na União Europeia. O projeto oferece informações essenciais sobre **documentação, hospedagem, custo de vida, transporte e uma galeria de fotos**.
 
-First, run the development server:
+-----
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🚀 Tecnologias Utilizadas
+
+  * **Next.js** (React framework)
+  * **TypeScript**
+  * **Tailwind CSS** (com design tokens customizados)
+  * **shadcn/ui** (biblioteca de componentes acessíveis)
+  * **ESLint + Prettier** (qualidade de código)
+  * **next-themes** (dark mode)
+  * **Unsplash API** (integração opcional para a galeria de fotos)
+
+-----
+
+## ✨ Funcionalidades
+
+  * 📄 **Documentação**: Guia para passaporte, visto, seguro saúde e outros documentos.
+  * 💰 **Custo de Vida**: Comparação de preços por categoria.
+  * 🏠 **Hospedagem**: Dicas sobre dormitórios, aluguel e plataformas confiáveis.
+  * ✈️ **Transporte Aéreo**: Sugestões e boas práticas.
+  * 📸 **Galeria de Fotos**: Integração opcional com a API do Unsplash.
+  * 🌗 **Dark Mode**: Alterna entre os temas claro e escuro.
+
+-----
+
+## ⚡ Instalação e Uso
+
+Para começar, siga estes passos:
+
+1.  Clone o repositório:
+    ```bash
+    git clone https://github.com/Williamnasci/Guia-de-Viagem.git
+    ```
+2.  Entre na pasta do projeto:
+    ```bash
+    cd Guia-de-Viagem
+    ```
+3.  Instale as dependências:
+    ```bash
+    npm install
+    ```
+4.  Rode a aplicação em modo de desenvolvimento:
+    ```bash
+    npm run dev
+    ```
+
+Acesse o projeto em `http://localhost:3000`.
+
+### 📸 Galeria de Fotos (Opcional)
+
+Se você quiser incluir a galeria de fotos, é necessário integrar a API do Unsplash. Siga estas instruções:
+
+1.  Crie uma conta em [Unsplash Developers](https://unsplash.com/developers).
+2.  Crie uma nova aplicação e copie sua **Access Key**.
+3.  Crie um arquivo `.env.local` na raiz do projeto e adicione sua chave de acesso:
+    ```env
+    NEXT_PUBLIC_UNSPLASH_ACCESS_KEY=YOUR_ACCESS_KEY
+    ```
+
+-----
+
+## 📂 Estrutura de Pastas
+
+```
+src/
+├─ components/     # Componentes reutilizáveis (botões, cards, headers, footers)
+│  └─ ui/          # Componentes shadcn/ui
+├─ layouts/        # Layouts globais (MainLayout)
+├─ pages/          # Páginas do Next.js (Home, Documentação, Hospedagem, etc.)
+├─ styles/         # Estilos globais e tokens (Tailwind + CSS customizado)
+├─ lib/            # Funções utilitárias e helpers (ex: fetchPhotos, cn)
+├─ types/          # Definições de tipos TypeScript
+├─ constants/      # Dados estáticos e textos
+public/            # Imagens públicas (passaporte.png, skyline.png, preview.png)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+-----
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## 📦 Deploy
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+O projeto está configurado para deploy no Vercel.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+1.  Execute o comando de build:
+    ```bash
+    npm run build
+    ```
+2.  Conecte o repositório ao Vercel para o deploy automático.
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+-----
 
-## Learn More
+## 📝 Licença
 
-To learn more about Next.js, take a look at the following resources:
+Este projeto está sob a **Licença MIT**. Sinta-se à vontade para usá-lo e modificá-lo.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+-----
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 👨‍💻 Autor
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+**William Nascimento** 🚀
