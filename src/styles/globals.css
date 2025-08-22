@@ -1,26 +1,119 @@
 @import "tailwindcss";
 
+/* ===========================
+   Design Tokens (Light/Dark)
+   =========================== */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Base */
+  --bg: 220 33% 99%;
+  --text: 222 47% 10%;
+  --muted: 220 10% 40%;
+  --border: 220 14% 90%;
+  --ring: 200 98% 40%;
+
+  /* Surfaces */
+  --surface-1: 0 0% 100%;
+  --surface-2: 210 40% 98%;
+  --surface-3: 210 40% 96%;
+
+  /* Brand – viagem (oceano + pôr-do-sol) */
+  --primary: 199 89% 48%;
+  --primary-fg: 0 0% 100%;
+  --secondary: 256 84% 60%;
+  --secondary-fg: 0 0% 100%;
+  --accent: 24 95% 53%;
+  --accent-fg: 0 0% 100%;
+
+  /* Estados */
+  --success: 142 72% 35%;
+  --warning: 38 92% 50%;
+  --danger: 0 84% 60%;
+
+  /* Sombras */
+  --shadow-1: 220 40% 2% / 0.06;
+  --shadow-2: 220 40% 2% / 0.12;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.dark {
+  --bg: 222 47% 7%;
+  --text: 210 40% 96%;
+  --muted: 215 15% 70%;
+  --border: 217 33% 20%;
+  --ring: 199 89% 48%;
+
+  --surface-1: 222 47% 9%;
+  --surface-2: 222 47% 11%;
+  --surface-3: 222 47% 13%;
+
+  --primary: 199 89% 48%;
+  --primary-fg: 0 0% 100%;
+  --secondary: 256 84% 62%;
+  --secondary-fg: 0 0% 100%;
+  --accent: 26 94% 61%;
+  --accent-fg: 0 0% 10%;
+
+  --success: 142 64% 45%;
+  --warning: 38 92% 58%;
+  --danger: 0 84% 66%;
+
+  --shadow-1: 207 40% 2% / 0.4;
+  --shadow-2: 207 40% 2% / 0.6;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+/* ===========================
+   Helpers (HSL via vars)
+   =========================== */
+.text-main   { color: hsl(var(--text)); }
+.text-muted  { color: hsl(var(--muted)); }
+.bg-app      { background-color: hsl(var(--bg)); }
+.bg-surface  { background-color: hsl(var(--surface-1)); }
+.bg-surface2 { background-color: hsl(var(--surface-2)); }
+.border-app  { border-color: hsl(var(--border)); }
+.ring-app    { box-shadow: 0 0 0 3px hsl(var(--ring) / 0.3); }
+.shadow-1    { box-shadow: 0 6px 16px 0 hsl(var(--shadow-1)); }
+.shadow-2    { box-shadow: 0 10px 28px 0 hsl(var(--shadow-2)); }
+
+.btn-primary { background-color: hsl(var(--primary)); color: hsl(var(--primary-fg)); }
+.btn-secondary { background-color: hsl(var(--secondary)); color: hsl(var(--secondary-fg)); }
+.badge-accent { background-color: hsl(var(--accent)); color: hsl(var(--accent-fg)); }
+
+/* ===========================
+   Global layout + background
+   =========================== */
+html, body, #__next { height: 100%; }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100%;
+  color: hsl(var(--text));
+  background:
+    radial-gradient(1200px 600px at 10% -10%, hsl(var(--surface-2)) 0%, transparent 60%),
+    radial-gradient(1200px 600px at 110% 10%, hsl(var(--surface-3)) 0%, transparent 60%),
+    linear-gradient(180deg, hsl(var(--bg)) 0%, hsl(var(--surface-2)) 100%);
+}
+
+a { text-underline-offset: 4px; }
+
+/* Hero gradient (céu → pôr do sol sutil) */
+.hero-gradient {
+  background-image: radial-gradient(800px 400px at 85% 20%, hsl(var(--accent) / 0.12), transparent 60%),
+                    linear-gradient(135deg, hsl(var(--surface-2)) 0%, hsl(var(--surface-1)) 40%, hsl(var(--surface-3)) 100%);
+}
+
+.skyline-fade::after {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 24px;               /* faixa de fade */
+  background: linear-gradient(
+    to top,
+    transparent,
+    hsl(var(--bg))
+  );
+}
+.dark .skyline-fade::after {
+  background: linear-gradient(
+    to top,
+    transparent,
+    hsl(var(--bg))
+  );
 }
